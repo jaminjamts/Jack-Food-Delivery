@@ -7,7 +7,7 @@ config();
 const server = express();
 server.use(cors());
 server.use(bodyParser.json());
-const PORT = 8000;
+const PORT = process.env.DB_URL || 8000;
 server.get("/", (_, res) => {
   res.send("delivery backend server is working");
 });
