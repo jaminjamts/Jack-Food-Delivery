@@ -5,9 +5,9 @@ import { config } from "dotenv";
 config();
 
 const server = express();
-server.use(cors());
+const PORT = 8000 || process.env.DB_URL;
 server.use(bodyParser.json());
-const PORT = process.env.DB_URL || 8000;
+server.use(cors());
 server.get("/", (_, res) => {
   res.send("delivery backend server is working");
 });
