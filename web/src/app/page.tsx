@@ -4,11 +4,21 @@ import {BACKEND_ENDPOINT} from "@/constants/constant"
 export default function Home() {
   const [data, setData] = useState()
   
-  const fetchData=async()=>{
+  const fetchData = async () => {
+  try{
     const response = await fetch(`${BACKEND_ENDPOINT}`);
-    const data = await response.json();
-    console.log(data);
-
+    const datas = await response.json();
+    setData(datas)
+    console.log(`csac:`,datas);
+    
+  }catch(error){
+    throw new Error()
+  }finally{
+    console.log("failed");
+    
+  }
+    
+  
   }
 useEffect(()=>{
   fetchData()
