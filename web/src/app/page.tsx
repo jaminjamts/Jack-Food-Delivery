@@ -9,21 +9,20 @@ export default function Home() {
     const response = await fetch(`${BACKEND_ENDPOINT}`);
     const datas = await response.json();
     setData(datas)
-    console.log(`csac:`,datas);
+    console.log(`data:`, datas);
     
   }catch(error){
     throw new Error()
   }finally{
     console.log("failed");
-    
   }
-    
-  
   }
+
 useEffect(()=>{
   fetchData()
 },[])
+
   return (
- <main>Food delivery JACK'S Server</main>
+ <main>{data}</main>
   );
 }
