@@ -8,8 +8,9 @@ const server = express();
 const PORT = 8000 || process.env.DB_URL;
 server.use(bodyParser.json());
 server.use(cors());
+
 server.get("/", (_, res) => {
-  res.send("delivery backend server is working");
+  res.json("delivery backend server is working");
 });
 
 server.listen(PORT, () => {
